@@ -1,5 +1,7 @@
 package hibernate;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -21,6 +23,13 @@ public class HybernateApp {
 			if (t != null) {
 				t.rollback();
 			}
+			e.printStackTrace();
+		}
+		
+		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+			List resultList = session.createQuery("ROM Student").list();
+			 System.out.println(resultList);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 

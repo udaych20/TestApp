@@ -6,8 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 @Entity
 @Table
+@Cache(usage=CacheConcurrencyStrategy.READ_ONLY)  
 public class Student implements Serializable{
 
 	private static final long serialVersionUID = -6981077476738225737L;
@@ -46,6 +50,9 @@ public class Student implements Serializable{
 	@Override
 	public String toString() {
 		return "Student [sid=" + sid + ", name=" + name + ", address=" + address + "]";
+	}
+	public Student() {
+		super();
 	}
 	
 	
