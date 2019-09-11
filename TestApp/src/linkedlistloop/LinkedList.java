@@ -45,7 +45,7 @@ public class LinkedList {
 			sb.append(current).append("-->");
 			current = current.next();
 		}
-		sb.delete(sb.length() - 3, sb.length()); // to remove --> from last node
+//		sb.delete(sb.length() - 3, sb.length()); // to remove --> from last node
 		return sb.toString();
 	}
 }
